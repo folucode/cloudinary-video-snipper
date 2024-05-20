@@ -7,16 +7,23 @@
   padding: 2rem;
   border: 1px solid #ddd;
   border-radius: 4px;
+  background-color: white;
+}
+
+.upload-form h2 {
+  color: #484c48;
 }
 
 .form-group {
   display: flex;
   align-items: center;
+  margin: 20px 0;
 }
 
 .form-group label {
   flex: 0 0 30%;
   text-align: left;
+  color: #403e3e;
 }
 
 .form-group input,
@@ -35,7 +42,7 @@
 }
 
 .submit-button {
-  background-color: #484c48;
+  background-color: rgb(119, 119, 243);
   color: white;
   padding: 1rem 2rem;
   border: none;
@@ -45,5 +52,5 @@
 }
 
 .submit-button:hover {
-  background-color: #6b6f6b;
+  background-color: rgb(81, 81, 234);
 }

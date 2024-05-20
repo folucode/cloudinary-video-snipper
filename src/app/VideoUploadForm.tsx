@@ -46,8 +46,9 @@ export default function VideoUploadForm() {
   }
 
   return (
-    <div>
-      <form action={upload} className={formStyles['upload-form']}>
+    <div className={formStyles['upload-form']}>
+      <h2>Upload and Snip Your Video for TikTok</h2>
+      <form action={upload}>
         <div className={formStyles['form-group']}>
           <label htmlFor='video'>Upload Video:</label>
           <input type='file' name='video' accept='video/*' required />
