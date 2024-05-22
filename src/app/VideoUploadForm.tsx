@@ -17,27 +17,23 @@ export default function VideoUploadForm() {
     let url: string = '';
 
     try {
-      const uploadResult: UploadApiResponse = await cloudinary.uploader.upload(
-        `data:${file.type};base64,${buffer.toString('base64')}`,
-        {
-          resource_type: 'video',
-          public_id: `video-snippets/${Date.now()}`,
-        }
-      );
+      const base64Image: string = `data:${file.type};base64,${buffer.toString(
+        'base64'
+      )}`;
 
-      const snipResult: UploadApiResponse = await cloudinary.uploader.upload(
-        uploadResult.secure_url,
+      const uploadResult: UploadApiResponse = await cloudinary.uploader.upload(
+        base64Image,
         {
           resource_type: 'video',
           transformation: [
             { start_offset: start, end_offset: end },
             { aspect_ratio: '9:16', crop: 'fill' },
           ],
-          public_id: `video-snippets/snipped-${Date.now()}`,
+          public_id: `video-snippets/${Date.now()}`,
         }
       );
 
-      url = snipResult.secure_url;
+      url = uploadResult.secure_url;
     } catch (error: any) {
       console.error(error);
     }
